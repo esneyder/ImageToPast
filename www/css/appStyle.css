@@ -1,0 +1,26 @@
+ body{
+     text-align: right;
+}
+ #main{
+     background-color: black;
+}
+ .boton-top-rigth{
+     top:5px;
+     padding: 30px;
+     background-image: url(../js/jQueryMobile/images/icons-png/placeholders1.png);
+     background-position: center;
+     background-repeat: no-repeat;
+}
+.boton-bar{
+    margin: 0;
+}
+#map-canvas{
+    width: 100%;
+    margin: auto;
+    height: 0px;
+    background: rgba(0, 0, 0, 0.5);
+    transition: ease .4s;
+    position: absolute;
+    bottom: 0;
+    height: 90%;
+}
