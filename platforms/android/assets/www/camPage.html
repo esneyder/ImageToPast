@@ -12,20 +12,20 @@
         <script>
             $.support.cors = true;
             $.mobile.allowCrossDomainPages = true;
-            $(document).on("pageshow", "#mapPage", function( event ) {initialize()});
+            $(document).on("pageshow", "#mapPage", function( event ) {initialize();resize();});
         </script>
 
         </head>
         <body>
             <div data-role="page" id="main">
                 <!-- /header -->
-                <div role="main" class="ui-content header">
+                <div id="main" role="main" class="ui-content header">
                    <a href="#" data-icon="" data-transition="slideup" class="ui-btn ui-btn-inline boton-top-rigth"></a>
                    <a href="#mapPage" data-transition="slideup" class="ui-btn ui-btn-inline boton-top-rigth"></a>
                 </div>
             </div>
             <div id="mapPage" data-role="page">
-                <a href="camPage.html" data-transition="slidedown" class="ui-btn ui-btn-b ui-icon-delete ui-btn-icon-left boton-bar">Cerrar</a>
+                <a id="cerrar" href="#main" data-transition="slidedown" class="ui-btn ui-btn-b ui-icon-delete ui-btn-icon-left boton-bar">Cerrar</a>
                 <div id="map-canvas">hola</div>
             </div>
 
