@@ -1,5 +1,6 @@
- body{
+ body, html{
      text-align: right;
+     height: 100%;
 }
  #main{
      background-color: black;
@@ -14,11 +15,8 @@
 .boton-bar{
     margin: 0;
 }
+#map-page, #map-canvas { width: 100%; height: 100%; padding: 0; }
 #map-canvas{
-    width: 100%;
-    margin: auto;
     background: rgba(0, 0, 0, 0.5);
     transition: ease .4s;
-    position: absolute;
-    height: 100px;
 }
