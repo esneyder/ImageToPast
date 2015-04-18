@@ -11,8 +11,11 @@
     <body>
         <div data-role="page" id="map-page">
             <div data-role="header" data-theme="b" id="cerrar" data-position="fixed" data-tap-toogle="true">
-                <a href="camPage.html" data-transition="slideup" data-icon="delete">Cancel</a>
-                <h1>Maps</h1>
+            	<h1>Maps</h1>
+                <div class="ui-nodisc-icon">
+                	<a href="camPage.html" data-transition="slidedown" class="ui-btn ui-btn-inline ui-icon-camera ui-btn-left ui-btn-icon-notext ui-shadow ui-corner-all ui-btn" data-theme="b"><i class="fa fa-map-marker"></i></a>
+                	<a href="#" data-transition="slideup" class="ui-btn ui-btn-inline ui-icon-bars ui-btn-right ui-btn-icon-notext ui-shadow ui-corner-all ui-btn" data-theme="b">List</a>
+                </div>
             </div>
             <div role="main" class="ui-content" id="map-canvas">
                 <!-- map loads here... -->

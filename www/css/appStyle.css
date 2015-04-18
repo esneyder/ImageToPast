@@ -1,6 +1,6 @@
  body, html{
-     text-align: right;
      height: 100%;
+     overflow: hidden;
 }
  #main{
      background-color: black;
@@ -15,7 +15,7 @@
 .boton-bar{
     margin: 0;
 }
-#map-page, #map-canvas { width: 100%; height: 100%; padding: 0; }
+#map-page, #map-canvas { width: 100%; height: 100%; padding: 0; margin: 0;}
 #map-canvas{
     background: rgba(0, 0, 0, 0.5);
     transition: ease .4s;

@@ -1,70 +1,62 @@
+var map;
 
-
-var map,
-    id,
-    currentPosition,
-    mapCenter = new google.maps.LatLng(39.473263, -0.383927);
 function initialize() {
-    intitilizeMap();
-    resize();
-    if(navigator.geolocation) {
-        id = navigator.geolocation.getCurrentPosition ( displayAndWatchMap, locationError );
-    }else{
-        alert("Se ha producido un error");
-    }
-}
+  var mapOptions = {
+    zoom: 16
+  };
+  
+  map = new google.maps.Map(document.getElementById('map-canvas'),
+      mapOptions);
+          
+  if(navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      var pos = new google.maps.LatLng(position.coords.latitude,
+                                       position.coords.longitude);
 
-// Inicilizamos el mapa
-function intitilizeMap(){ 
-    var mapOptions = {
-        zoom: 16,
-        center: mapCenter,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-    };
-    map = new google.maps.Map(document.getElementById('map-canvas'),
-                              mapOptions);
+      var marker = new google.maps.Marker({
+        position: pos,
+        icon: {
+          path: google.maps.SymbolPath.CIRCLE,
+          scale: 7,
+          strokeColor: '#FFFFFF',
+          strokeWeight: 2,
+          fillColor: '#00F',
+          fillOpacity: 1
+        },
+        map: map
+      }); 
 
-    }
-
-// En caso de error al obtener la posicion mostramos un mensaje
-function locationError(){ 
-    alert("Imposible obtener la localización");
-}
-
-// Establecemos la posición actual en el mapa
-function setPositionInGoogleMap(position){ 
-    var mapPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-
-
-    currentPosition = new google.maps.Marker({
-        position: mapPos,
-        map: map,
-        title: "Posición actual"
+      $(window).resize(function(){
+        resize_map();
+      });       
+        
+      map.setCenter(pos);
+    }, function() {
+      handleNoGeolocation(true);
     });
-
-    map.panTo(mapPos)
+  } else {
+    // Browser doesn't support Geolocation
+    handleNoGeolocation(false);
+  }
 }
 
-// Obtenemos la posicion actual
-function getCurrentPosition(){
-    id = navigator.geolocation.watchPosition (
-        function (position){
-            setMarker(currentPosition, position);
-        });
-}
+function handleNoGeolocation(errorFlag) {
+  if (errorFlag) {
+    var content = 'Error: The Geolocation service failed.';
+  } else {
+    var content = 'Error: Your browser doesn\'t support geolocation.';
+  }
 
-function setMarker (marker, position){
-    var mapPos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
-    marker.setPosition(mapPos);
-}
+  var options = {
+    map: map,
+    position: new google.maps.LatLng(60, 105),
+    content: content
+  };
 
-function displayAndWatchMap(position){
-    setPositionInGoogleMap(position);
-    getCurrentPosition();
+  var infowindow = new google.maps.InfoWindow(options);
+  map.setCenter(options.position);
 }
-function resize() {
-    var alto_boton = $('#cerrar').height();
-    var alto_pantalla = $(window).height();
-    $("#map-canvas").height(alto_pantalla -alto_boton);
+function resize_map() {
+    $('#map-canvas').height($(window).height() - $('#cerrar').height());
+    google.maps.event.trigger(map, 'resize')
 }
-//google.maps.event.addDomListener(window, 'load', initialize);

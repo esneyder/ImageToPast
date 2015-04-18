@@ -1,4 +1,21 @@
 /Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/classes.dex : \
+/Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/classes/com/wikitude/phonegap/WikitudePlugin$1.class \
+/Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/classes/com/wikitude/phonegap/WikitudePlugin$10.class \
+/Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/classes/com/wikitude/phonegap/WikitudePlugin$11.class \
+/Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/classes/com/wikitude/phonegap/WikitudePlugin$2$1.class \
+/Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/classes/com/wikitude/phonegap/WikitudePlugin$2.class \
+/Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/classes/com/wikitude/phonegap/WikitudePlugin$3.class \
+/Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/classes/com/wikitude/phonegap/WikitudePlugin$4.class \
+/Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/classes/com/wikitude/phonegap/WikitudePlugin$5.class \
+/Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/classes/com/wikitude/phonegap/WikitudePlugin$6.class \
+/Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/classes/com/wikitude/phonegap/WikitudePlugin$7.class \
+/Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/classes/com/wikitude/phonegap/WikitudePlugin$8.class \
+/Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/classes/com/wikitude/phonegap/WikitudePlugin$9.class \
+/Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/classes/com/wikitude/phonegap/WikitudePlugin$ArchitectViewPhoneGap$OnKeyUpDownListener.class \
+/Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/classes/com/wikitude/phonegap/WikitudePlugin$ArchitectViewPhoneGap.class \
+/Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/classes/com/wikitude/phonegap/WikitudePlugin$ILocationProvider.class \
+/Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/classes/com/wikitude/phonegap/WikitudePlugin$LocationProvider.class \
+/Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/classes/com/wikitude/phonegap/WikitudePlugin.class \
 /Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/classes/es/frafusan/android/imagetopast/BuildConfig.class \
 /Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/classes/es/frafusan/android/imagetopast/CordovaApp.class \
 /Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/classes/es/frafusan/android/imagetopast/R$attr.class \
@@ -7,3 +24,4 @@
 /Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/classes/es/frafusan/android/imagetopast/R$xml.class \
 /Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/classes/es/frafusan/android/imagetopast/R.class \
 /Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/dexedLibs/classes-de141c212054388290a8e196af3938ff.jar \
+/Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/dexedLibs/wikitudesdk-efa62c3356b9cac006405b80964e81ed.jar \

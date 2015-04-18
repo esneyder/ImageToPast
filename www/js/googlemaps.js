@@ -1,24 +1,35 @@
 var map;
+
 function initialize() {
   var mapOptions = {
     zoom: 16
   };
+  
   map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
-  console.log("1");
           
-  // Try HTML5 geolocation
   if(navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(function(position) {
       var pos = new google.maps.LatLng(position.coords.latitude,
-                                       position.coords.longitude);        
+                                       position.coords.longitude);
 
-      var infowindow = new google.maps.InfoWindow({
-        map: map,
+      var marker = new google.maps.Marker({
         position: pos,
-        content: 'Location found using HTML5.'
-      });
-      
+        icon: {
+          path: google.maps.SymbolPath.CIRCLE,
+          scale: 7,
+          strokeColor: '#FFFFFF',
+          strokeWeight: 2,
+          fillColor: '#00F',
+          fillOpacity: 1
+        },
+        map: map
+      }); 
+
+      $(window).resize(function(){
+        resize_map();
+      });       
+        
       map.setCenter(pos);
     }, function() {
       handleNoGeolocation(true);
@@ -45,8 +56,7 @@ function handleNoGeolocation(errorFlag) {
   var infowindow = new google.maps.InfoWindow(options);
   map.setCenter(options.position);
 }
-function resize() {
-    var alto_boton = $('#cerrar').height();
-    var alto_pantalla = $(window).height();
-    $("#map-canvas").height(alto_pantalla -alto_boton);
+function resize_map() {
+    $('#map-canvas').height($(window).height() - $('#cerrar').height());
+    google.maps.event.trigger(map, 'resize')
 }

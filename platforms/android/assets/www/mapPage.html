@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Lat/Lng Object Literal</title>
-        <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
-        <meta charset="utf-8">
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	<head>
+		<title>Página de mapa</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no;" />
+        <link rel="stylesheet" href="js/jQueryMobile/jquery.mobile-1.4.5.min.css" />
+        <link rel="stylesheet" href="css/appStyle.css" />
         <script src="js/jquery-2.1.3.min.js"></script>
         <script src="js/jQueryMobile/jquery.mobile-1.4.5.min.js"></script>
-        <script>
-        (document).on("pageshow", "#map-canvas", function( event ) {alert("123")}
-        </script>
-        <link  rel="stylesheet" href="css/index.css" />
-        <script id="myscript" src="js/googlemaps.js"></script>
-   
-    </head>
-    <header></header>
+	</head>
     <body>
-        <a href="camPage.html" data-transition="slidedown" class="ui-btn ui-btn-b ui-icon-delete ui-btn-icon-left boton-bar">Cerrar</a>
-        <div id="map-canvas"></div>
-        
-
+        <div data-role="page" id="map-page">
+            <div data-role="header" data-theme="b" id="cerrar" data-position="fixed" data-tap-toogle="true">
+            	<h1>Maps</h1>
+                <div class="ui-nodisc-icon">
+                	<a href="camPage.html" data-transition="slidedown" class="ui-btn ui-btn-inline ui-icon-camera ui-btn-left ui-btn-icon-notext ui-shadow ui-corner-all ui-btn" data-theme="b"><i class="fa fa-map-marker"></i></a>
+                	<a href="#" data-transition="slideup" class="ui-btn ui-btn-inline ui-icon-bars ui-btn-right ui-btn-icon-notext ui-shadow ui-corner-all ui-btn" data-theme="b">List</a>
+                </div>
+            </div>
+            <div role="main" class="ui-content" id="map-canvas">
+                <!-- map loads here... -->
+            </div>
+        </div>
     </body>
 </html>
