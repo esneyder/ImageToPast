@@ -281,6 +281,7 @@
 /Users/frafusan/Proyectos/imagetopast/platforms/android/assets/www/res/icon/android/icon-48-mdpi.png \
 /Users/frafusan/Proyectos/imagetopast/platforms/android/assets/www/res/icon/android/icon-72-hdpi.png \
 /Users/frafusan/Proyectos/imagetopast/platforms/android/assets/www/res/icon/android/icon-96-xhdpi.png \
+/Users/frafusan/Proyectos/imagetopast/platforms/android/assets/www/res/icon/android/icon.png \
 /Users/frafusan/Proyectos/imagetopast/platforms/android/assets/www/res/icon/bada/icon-128.png \
 /Users/frafusan/Proyectos/imagetopast/platforms/android/assets/www/res/icon/bada-wac/icon-48-type5.png \
 /Users/frafusan/Proyectos/imagetopast/platforms/android/assets/www/res/icon/bada-wac/icon-50-type3.png \
