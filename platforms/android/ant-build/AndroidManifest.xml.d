@@ -1,2 +1,2 @@
-/Users/frafusan/Proyectos/imagetopast/platforms/android/ant-build/AndroidManifest.xml : \
-/Users/frafusan/Proyectos/imagetopast/platforms/android/AndroidManifest.xml \
+/Users/frafusan/proyectos/imagetopast/platforms/android/ant-build/AndroidManifest.xml : \
+/Users/frafusan/proyectos/imagetopast/platforms/android/AndroidManifest.xml \

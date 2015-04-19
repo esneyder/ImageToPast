@@ -1,14 +1,16 @@
 var map;
 
 function initialize() {
+    console.log('CURRO: Dentro de initialize');
   var mapOptions = {
     zoom: 16
   };
-  
+  console.log('CURRO: antes de nada');
   map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
-          
+ console.log('CURRO: tras google.maps.Map');
   if(navigator.geolocation) {
+        console.log('CURRO: entra en el if');
     navigator.geolocation.getCurrentPosition(function(position) {
       var pos = new google.maps.LatLng(position.coords.latitude,
                                        position.coords.longitude);
@@ -25,11 +27,11 @@ function initialize() {
         },
         map: map
       }); 
-
+    console.log('CURRO: Antes del resize');
       $(window).resize(function(){
         resize_map();
       });       
-        
+    console.log('CURRO: tras el resize');
       map.setCenter(pos);
     }, function() {
       handleNoGeolocation(true);
@@ -60,3 +62,8 @@ function resize_map() {
     $('#map-canvas').height($(window).height() - $('#cerrar').height());
     google.maps.event.trigger(map, 'resize')
 }
+$(document).on('pageshow','#map-page', function(){
+            initialize();
+            console.log('CURRO: TRAS INICILIZAR EL MAPA');
+            resize_map();
+        }); 
