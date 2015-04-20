@@ -22,10 +22,10 @@
 
         <!-- jquery JS files -->
         <script src="js/jQueryMobile/jquery-1.9.1.min.js"></script>
-        <script src="js/jQueryMobile/jquery.mobile-1.3.2.min.js"></script>
+        <script src="js/jQueryMobile/jquery.mobile-1.4.5.min.js"></script>
 
         <!-- Google maps -->
-        <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+        <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
         <script src="js/googlemaps.js"></script>
 
         <!-- marker representation-->
@@ -50,15 +50,14 @@
 
         </div>
         <div data-role="page" id="map-page" data-theme="b">
-            <div data-role="header" data-theme="b" id="cerrar" data-position="fixed" data-tap-toogle="true">
+            <div data-role="header" data-theme="b" id="cerrar" data-position="fixed" data-fullscreen="true">
                 <h1>Maps</h1>
                 <div class="ui-nodisc-icon">
                     <a href="#cam-page" data-transition="slidedown" class="ui-btn ui-btn-inline ui-icon-camera ui-btn-left ui-btn-icon-notext ui-shadow ui-corner-all ui-btn" data-theme="b"><i class="fa fa-map-marker"></i></a>
                     <a href="#" data-transition="slideup" class="ui-btn ui-btn-inline ui-icon-bars ui-btn-right ui-btn-icon-notext ui-shadow ui-corner-all ui-btn" data-theme="b">List</a>
                 </div>
             </div>
-            <div role="main" class="ui-content" id="map-canvas">
-                algo deberia de verse
+            <div data-role="content" id="map-canvas">
                 <!-- map loads here... -->
             </div>
         </div>
