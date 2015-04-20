@@ -1,5 +1,5 @@
 var example = {
-    "path": "www/world/4_PointOfInterest_3_MultiplePois/index.html", 
+    "path": "www/world.html", 
     "requiredFeatures": [
         "geo"
     ], 
