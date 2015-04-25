@@ -108,7 +108,7 @@ var World = {
 				"latitude": (centerPointLatitude + (Math.random() / 5 - 0.1)),
 				"description": ("This is the description of POI#" + (i + 1)),
 				"altitude": "100.0",
-				"name": ("POI#" + (i + 1))
+				"name": ("Cambiando los POI'S" + (i + 1))
 			});
 		}
 		World.loadPoisFromJsonData(poiData);

@@ -7,32 +7,29 @@
         <!--  basic meta information -->
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta http-equiv="Content-Type" content="application/json; charset=utf-8">
-        <meta content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=no" name="viewport">
+        <meta name="viewport" content="width=device-width, initial-scale=1" /> 
 
         <title>My ARchitect World</title>
-
-        <script src="architect://architect.js"></script>
-        <script src="js/de.js"></script>
-
+        
         <!-- jquery mobile CSS -->
         <link rel="stylesheet" href="js/jQueryMobile/jquery.mobile-1.4.5.min.css" />
         <!-- required to set background transparent & enable "click through" -->
-        <link rel="stylesheet" href="js/jQueryMobile/jquery-mobile-transparent-ui-overlay.css" />
         <link rel="stylesheet" href="css/appStyle.css" />
 
         <!-- jquery JS files -->
         <script src="js/jQueryMobile/jquery-1.9.1.min.js"></script>
-        <script src="js/jQueryMobile/jquery.mobile-1.4.5.min.js"></script>
+        <link rel="stylesheet" href="js/jQueryMobile/jquery-mobile-transparent-ui-overlay.css" />
+        <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
 
-        <!-- Google maps -->
-        <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
+        <script src="architect://architect.js"></script>
+        <script src="js/ade.js"></script>
+        <script src="js/marker.js"></script>
+        <script src="js/multiplepois.js"></script>
+        
+                       <!-- Google maps -->
+        <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
         <script src="js/googlemaps.js"></script>
-
-        <!-- marker representation-->
-        <script src="js/marker.js"></script>    
-
-        <!-- World logic-->
-        <script type="text/javascript" src="js/multiplepois.js"></script>
+        
     </head>
 
     <body >
@@ -42,6 +39,8 @@
             </div>
             <div class="btn-container"> 
                 <a href="#map-page" data-role="button" data-transition="slideup" class="ui-btn ui-btn-inline boton-top-rigth"></a>
+                <!--<div id="loadingMessage" class="info">Loading ...</div>
+                <script src="js/mrker3d.js"></script>-->
             </div>
             <!-- MAIN PAGE CONTENT -->
 
@@ -49,7 +48,7 @@
 
 
         </div>
-        <div data-role="page" id="map-page" data-theme="b">
+        <div data-role="page" id="map-page" data-theme="b" style="background: none;">
             <div data-role="header" data-theme="b" id="cerrar" data-position="fixed" data-fullscreen="true">
                 <h1>Maps</h1>
                 <div class="ui-nodisc-icon">
@@ -57,8 +56,8 @@
                     <a href="#" data-transition="slideup" class="ui-btn ui-btn-inline ui-icon-bars ui-btn-right ui-btn-icon-notext ui-shadow ui-corner-all ui-btn" data-theme="b">List</a>
                 </div>
             </div>
-            <div data-role="content" id="map-canvas">
-                <!-- map loads here... -->
+            <div role="main" class="ui-content" id="map-canvas" >
+                Aqui deberia ir el mapa
             </div>
         </div>
 
