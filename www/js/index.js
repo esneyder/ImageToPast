@@ -26,7 +26,7 @@ var app = {
     // deviceready Event Handler
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        cordova.exec(null, null, "SplashScreen", "hide", []);
+        navigator.splashscreen.show();
         // check if the current device is able to launch ARchitect Worlds
         app.wikitudePlugin = cordova.require("com.wikitude.phonegap.WikitudePlugin.WikitudePlugin");
         app.wikitudePlugin.isDeviceSupported(function() {

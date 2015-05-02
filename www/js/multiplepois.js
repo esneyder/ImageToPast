@@ -26,10 +26,11 @@ var World = {
 		for (var currentPlaceNr = 0; currentPlaceNr < poiData.length; currentPlaceNr++) {
 			var singlePoi = {
 				"id": poiData[currentPlaceNr].id,
-				"latitude": parseFloat(poiData[currentPlaceNr].latitude),
-				"longitude": parseFloat(poiData[currentPlaceNr].longitude),
+				"latitude": parseFloat(poiData[currentPlaceNr].latitudeOffset),
+				"longitude": parseFloat(poiData[currentPlaceNr].longitudeOffset),
 				"altitude": parseFloat(poiData[currentPlaceNr].altitude),
 				"title": poiData[currentPlaceNr].name,
+                "image": poiData[currentPlaceNr].image,
 				"description": poiData[currentPlaceNr].description
 			};
 
@@ -98,7 +99,7 @@ var World = {
 
 	// request POI data
 	requestDataFromLocal: function requestDataFromLocalFn(centerPointLatitude, centerPointLongitude) {
-		var poisToCreate = 20;
+		/*var poisToCreate = 20;
 		var poiData = [];
 
 		for (var i = 0; i < poisToCreate; i++) {
@@ -106,12 +107,12 @@ var World = {
 				"id": (i + 1),
 				"longitude": (centerPointLongitude + (Math.random() / 5 - 0.1)),
 				"latitude": (centerPointLatitude + (Math.random() / 5 - 0.1)),
-				"description": ("This is the description of POI#" + (i + 1)),
+				"description": ("Descripcion de los POI#" + (i + 1)),
 				"altitude": "100.0",
 				"name": ("Cambiando los POI'S" + (i + 1))
 			});
-		}
-		World.loadPoisFromJsonData(poiData);
+		}*/
+		World.loadPoisFromJsonData(myJsonData);
 	}
 
 };
