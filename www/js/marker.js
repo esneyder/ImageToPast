@@ -35,15 +35,6 @@ function Marker(poiData) {
         }
     });
 
-    /* // create an AR.Label for the marker's description
-    this.descriptionLabel = new AR.Label(poiData.description.trunc(15), 0.8, {
-        zOrder: 1,
-        offsetY: -0.85,
-        style: {
-            textColor: '#d34c4c'
-        }
-    });
-*/
     this.myImage = new AR.ImageResource(poiData.image);
 
     this.imageLabel = new AR.ImageDrawable(this.myImage, 1.8, {
@@ -100,8 +91,17 @@ Marker.prototype.setSelected = function(marker) {
     marker.markerDrawable_idle.onClick = null;
     marker.markerDrawable_selected.onClick = Marker.prototype.getOnClickTrigger(marker);
     
+    // NOS DA LA DISTANCIA ENTRE NUESTRA POSICION Y EL MARKER
+    marker.distanceToUser = marker.markerObject.locations[0].distanceToUser();
+    
+    console.log("CURRO: "+marker.poiData.title);
+    
     // MOSTRAMOS UN DIV CON MÁS INFORMACION
-    document.getElementById("detail-viewer").style.display = "block";
+    document.getElementById("detail-viewer").style.opacity = "1";
+    document.getElementById("name").innerHTML = marker.poiData.title+" "+marker.distanceToUser;
+    document.getElementById("description").innerHTML = marker.poiData.description;
+    document.getElementById("image").src = marker.poiData.image;
+    
     
 };
 
@@ -116,7 +116,7 @@ Marker.prototype.setDeselected = function(marker) {
     marker.markerDrawable_selected.onClick = null;
     
     // OCULTAMOS EL DIV INFORMATIVO
-    document.getElementById("detail-viewer").style.display = "none";
+    document.getElementById("detail-viewer").style.opacity = "0";
     
 };
 

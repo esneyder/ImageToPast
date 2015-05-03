@@ -12,5 +12,12 @@
         },
         "is_top_level": true,
         "variables": {}
+    },
+    "com.wikitude.phonegap.WikitudePlugin": {
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Wikitude/wikitude-phonegap.git",
+            "subdir": "."
+        }
     }
 }

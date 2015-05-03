@@ -1,0 +1,12 @@
+{
+    "jscodehints.detectedExclusions": [
+        "/Users/frafusan/imagetopast/www/js/multiplepois.js",
+        "/Users/frafusan/imagetopast/platforms/ios/build/emulator/ImageToPast.app/www/spec/lib/jasmine-1.2.0/jasmine.js",
+        "/Users/frafusan/imagetopast/plugins/org.apache.cordova.splashscreen/www/windows8/SplashScreenProxy.js",
+        "/Users/frafusan/imagetopast/plugins/org.apache.cordova.splashscreen/www/splashscreen.js",
+        "/Users/frafusan/imagetopast/www/spec/helper.js",
+        "/Users/frafusan/imagetopast/www/spec/index.js",
+        "/Users/frafusan/imagetopast/plugins/org.apache.cordova.splashscreen/tests/tests.js",
+        "/Users/frafusan/imagetopast/plugins/org.apache.cordova.splashscreen/src/tizen/SplashScreenProxy.js"
+    ]
+}

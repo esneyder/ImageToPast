@@ -1,24 +1,28 @@
- body, html{
-     height: 100%;
+body, html{
+    height: 100%;
 }
- #main{
-     background-color: black;
+#main{
+    background-color: black;
 }
 .btn-container{
     margin: 0;
     padding: 0;
     float:right;
 }
- .boton-top-rigth{
-     top:5px;
-     border: 1px solid rgba(0, 0, 0, 0.5);
-     padding: 30px;
-     background-image: url(../js/jQueryMobile/images/icons-png/placeholders1.png);
-     background-position: center;
-     background-repeat: no-repeat;
-     text-decoration: none;
-    background-color:rgba(236, 236, 240, 0.21);
-
+.boton-top-rigth-l, .boton-top-rigth-r{
+    top:5px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    padding: 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-decoration: none;
+    background-color:rgba(236, 236, 240, 0.31);
+}
+.boton-top-rigth-l{
+    background-image: url(../img/icons/map-pointer2.svg);
+}
+.boton-top-rigth-r{
+    background-image: url(../img/icons/storage20.svg);
 }
 .boton-bar{
     margin: 0;
@@ -32,36 +36,72 @@
 }
 
 #detail-viewer{
-    display: none;
-    background-color:rgba(217, 217, 221, 0.21); 
+    opacity: 0;
+    background-color:rgba(236, 236, 240, 0.31);
     width:95%; 
     height: 45%; 
-    position: fixed; 
+    position: fixed;
+    left:50%;   
+    margin: 0 0 0 -47.5%;
     bottom: 0; 
-    margin: 1.25%; 
-    padding:1.25%;
+    padding:0;
     overflow: hidden;
-    transition-property: all;
-    transition-duration: 2s;
+    transition: opacity 0.2s;
     transition-timing-function: linear;
+    border-radius: 4px;
+}
+#detail-viewer header, #detail-viewer h3{
+    margin: 0;
+}
+#detail-viewer header{
+    background-color: rgba(110, 147, 115, 0.42);
+    border-radius: 4px;
+    text-shadow: none;
+}
+#detail-viewer h3{
+    padding: 2%;
+    color: whitesmoke;
 }
 #figure-viewer{
+    text-align: center;
     float:left; 
-    height: 75%; 
-    width: 49%; 
+    height: 60%; 
+    width: 45%; 
     margin: 0;
+    border-radius: 4px;
 }
 #figure-viewer > img {
     max-width: 100%;
 }
 #description-viewer{
+    background: rgba(110, 147, 115, 0.6);
     float:right; 
-    height: 75%; 
-    width: 49%; 
+    height: 79%; 
+    width: 49%;
+    padding: 3% 2%;
     overflow-y: scroll;
+    border-radius: 4px;
 }
 #description-viewer p {
-    font-size-adjust: auto;
+    font-size: 12px;
     color: whitesmoke;
     margin: 0;
+    text-align: justify;
+    text-shadow: none;
+}
+
+.view{
+    height:90%;
+    margin: 3%;
+}
+.swiper-container{
+    height: 100%;
+    border: 1px solid black; 
+    border-radius: 4px;
+}
+.swiper-slide{
+    width:100%;
+}
+.swiper-slide img{
+    height:100%;
 }

@@ -10,7 +10,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1" /> 
 
         <title>My ARchitect World</title>
-        
+
         <!-- jquery mobile CSS -->
         <link rel="stylesheet" href="js/jQueryMobile/jquery.mobile-1.4.5.min.css" />
         <!-- required to set background transparent & enable "click through" -->
@@ -21,41 +21,66 @@
         <link rel="stylesheet" href="js/jQueryMobile/jquery-mobile-transparent-ui-overlay.css" />
         <script src="http://code.jquery.com/mobile/1.3.2/jquery.mobile-1.3.2.min.js"></script>
 
+        <link rel="stylesheet" href="css/swiper.min.css">
+
         <script src="architect://architect.js"></script>
         <script src="js/ade.js"></script>
         <script src="js/myJsonData.js"></script>
         <script src="js/marker.js"></script>
         <script src="js/multiplepois.js"></script>
-        
-                       <!-- Google maps -->
+
+        <!-- Google maps -->
         <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
         <script src="js/googlemaps.js"></script>
-        
+
     </head>
 
     <body >
         <div data-role="page" id="cam-page" style="background: none;" >
             <div class="btn-container">
-                <a href="#map-page" data-role="button" data-transition="slideup" class="ui-btn ui-btn-inline boton-top-rigth"></a>
+                <a href="#map-page" data-role="button" data-transition="slideup" class="ui-btn ui-btn-inline boton-top-rigth-l"></a>
             </div>
             <div class="btn-container"> 
-                <a href="#map-page" data-role="button" data-transition="slideup" class="ui-btn ui-btn-inline boton-top-rigth"></a>
+                <a href="#" data-role="button" data-transition="slideup" class="ui-btn ui-btn-inline boton-top-rigth-r"></a>
                 <!--<div id="loadingMessage" class="info">Loading ...</div>
-                <script src="js/mrker3d.js"></script>-->
+<script src="js/mrker3d.js"></script>-->
             </div>
-            
+
             <div id="detail-viewer">
                 <header>
-                    <h3>Nombre</h3>
+                    <h3 id="name"></h3>
                 </header>
-                <section>
+                <section class="view">
                     <figure id="figure-viewer">
-                        <img src="img/PobleEspanyol.jpg">
+                        <!-- <img id="image" src="">-->
+                        <!-- ***********+***** -->
+                        <div class="swiper-container">
+                            <!-- Additional required wrapper -->
+                            <div class="swiper-wrapper">
+                                <!-- Slides -->
+                                <div class="swiper-slide"><img src="img/parallel.png"></div>
+                                <div class="swiper-slide"><img src="img/PobleEspanyol.jpg"></div>
+                                <div class="swiper-slide"><img src="img/Torres_de_Quart.jpg"></div>
+                                ...
+                            </div>
+                            <!-- If we need pagination -->
+                            <div class="swiper-pagination"></div>
+
+                                    <script src="js/swiper.jquery.min.js"></script>
+                            <script>$(document).ready(function () {
+    //initialize swiper when document ready  
+    var mySwiper = new Swiper ('.swiper-container', {
+      // Optional parameters
+      direction: 'horizontal',
+      loop: true
+    })        
+  });</script>
+
+                        </div>
+                        <!-- ***********+***** -->
                     </figure>
                     <div id="description-viewer">
-                        <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ornare varius turpis. Phasellus ipsum libero, vulputate vitae maximus et, blandit ac neque. Fusce aliquam, nunc id gravida pellentesque, ligula diam semper enim, vitae fermentum tortor ante eu odio. Pellentesque vestibulum, ex quis tempus vehicula, eros ipsum mollis sapien, id commodo arcu nibh non leo. Integer lacinia pharetra mauris, sit amet efficitur nibh sodales vitae. Ut fermentum justo ac orci consequat, at semper lectus sollicitudin. In eu porttitor justo. Proin urna ligula, pharetra sed consequat nec, eleifend id sapien. Proin feugiat ullamcorper scelerisque. In facilisis vestibulum lorem in egestas. Phasellus sed venenatis mi. Etiam imperdiet, arcu id vestibulum luctus, metus turpis aliquet purus, a mollis felis sapien et massa. Quisque leo elit, tincidunt et lacus at, rutrum lobortis neque. Integer dictum nibh erat, vitae sodales ligula faucibus eu. Integer sed odio vitae ligula ullamcorper dictum ac sit amet justo.
-
-Aenean luctus elit gravida lorem malesuada, efficitur consequat urna egestas. Aenean purus tellus, egestas vel eros quis, venenatis iaculis erat. In sit amet iaculis nisl, at bibendum metus. Vestibulum tincidunt aliquam justo sit amet mattis. Donec rhoncus elit turpis, sit amet lobortis nisl rhoncus ac. Suspendisse ex augue, eleifend et placerat sit amet, ullamcorper facilisis purus. Nulla tempus tortor eu augue faucibus, ut semper urna venenatis. Etiam ut consectetur purus. Sed eget interdum orci. </p>
+                        <p id="description"></p>
                     </div>
                 </section>
             </div>
