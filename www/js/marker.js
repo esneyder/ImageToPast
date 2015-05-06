@@ -98,8 +98,9 @@ Marker.prototype.setSelected = function(marker) {
     
     // MOSTRAMOS UN DIV CON MÁS INFORMACION
     document.getElementById("detail-viewer").style.opacity = "1";
-    document.getElementById("name").innerHTML = marker.poiData.title+" "+marker.distanceToUser;
+    document.getElementById("name").innerHTML = marker.poiData.title;
     document.getElementById("description").innerHTML = marker.poiData.description;
+    document.getElementById("distance").innerHTML = marker.distanceToUser;
     document.getElementById("image").src = marker.poiData.image;
     
     
