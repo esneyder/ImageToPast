@@ -19,8 +19,8 @@ var World = {
 		World.markerList = [];
 
 		// start loading marker assets
-		World.markerDrawable_idle = new AR.ImageResource("assets/marker_idle.png");
-		World.markerDrawable_selected = new AR.ImageResource("assets/marker_selected.png");
+		World.markerDrawable_idle = new AR.ImageResource("assets/mimaker1.png");
+		World.markerDrawable_selected = new AR.ImageResource("assets/mimaker2.png");
 
 		// loop through POI-information and create an AR.GeoObject (=Marker) per POI
 		for (var currentPlaceNr = 0; currentPlaceNr < poiData.length; currentPlaceNr++) {

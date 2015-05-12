@@ -37,7 +37,7 @@ function Marker(poiData) {
 
     this.myImage = new AR.ImageResource(poiData.image);
 
-    this.imageLabel = new AR.ImageDrawable(this.myImage, 1.8, {
+    this.imageLabel = new AR.ImageDrawable(this.myImage, 1.5, {
         zOrder: 1,
         offsetY : 0.25,
         opacity: 0.7,

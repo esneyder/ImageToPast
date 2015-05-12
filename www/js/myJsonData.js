@@ -22,8 +22,22 @@ var myJsonData = [{
 	"altitude": "100.0",
     "image": "img/PobleEspanyol.jpg",
 	"name": "Poble Espanyol"
+}, {
+    "id": "3",
+	"longitudeOffset": "-1.702966",
+	"latitudeOffset": "38.512061",
+	"description": "La Iglesia Parroquial de Santa Maria de la Asunción. Empezó su construcción el el año 1499, siendo la primera iglesia de tipo columnario de toda la Diócesis de Cartagena. Hay que destacar que no ofrece crucero y en cambio internamente quedan las naves perfectamente definidas y separadas por unos soportes cilíndricos. La capilla mayor se articula con cinco paños y bóveda estrellada. La construcción de las capillas laterales corresponde a distintas épocas, siendo la mayoría renacentista y alguna gótica. La portada del exterior es sobria y bien trazada, con el hueco de entrada adintelado y sin ningún tipo de remate superior, fechándose su construcción en los finales del siglo XVI o los comienzos del XVII. La torre situada junto a la cabecera posee un remate barroco del siglo XVIII.",
+	"altitude": "100.0",
+    "image": "img/asuncion.jpg",
+	"name": "Parroquia de la Asunción"
+}, {
+    "id": "3",
+	"longitudeOffset": "-1.702966",
+	"latitudeOffset": "38.512061",
+	"description": "La Iglesia Parroquial de Santa Maria de la Asunción. Empezó su construcción el el año 1499, siendo la primera iglesia de tipo columnario de toda la Diócesis de Cartagena. Hay que destacar que no ofrece crucero y en cambio internamente quedan las naves perfectamente definidas y separadas por unos soportes cilíndricos. La capilla mayor se articula con cinco paños y bóveda estrellada. La construcción de las capillas laterales corresponde a distintas épocas, siendo la mayoría renacentista y alguna gótica. La portada del exterior es sobria y bien trazada, con el hueco de entrada adintelado y sin ningún tipo de remate superior, fechándose su construcción en los finales del siglo XVI o los comienzos del XVII. La torre situada junto a la cabecera posee un remate barroco del siglo XVIII.",
+	"altitude": "100.0",
+    "image": "img/asuncion.jpg",
+	"name": "Parroquia de la Asunción"
 }];
 
-
-41.369139, 2.146657
 

@@ -20,13 +20,14 @@ body, html{
     background-position: center;
     background-repeat: no-repeat;
     text-decoration: none;
-    background-color:rgba(236, 236, 240, 0.31);
     background-size: 24px 24px;
 }
 .boton-top-rigth-l{
+    background-color:rgba(232, 142, 109, 0.5);
     background-image: url(../img/icons/map-pointer2.svg);
 }
 .boton-top-rigth-r{
+    background-color:rgba(232, 218, 109, 0.5);
     background-image: url(../img/icons/storage20.svg);
 }
 .boton-bar{
@@ -42,7 +43,7 @@ body, html{
 
 #detail-viewer{
     opacity: 0;
-    background-color: #A1887F;
+    background-color: #795548;
     width:95%; 
     height: 45%; 
     position: fixed;
@@ -76,7 +77,7 @@ body, html{
 #figure-viewer{
     text-align: center;
     float:right; 
-    height: 60%; 
+    height: 50%; 
     width: 45%; 
     margin: 0;
     border-radius: 2px;
@@ -86,11 +87,22 @@ body, html{
 }
 #description-viewer{
     float:left; 
-    height: 60%; 
+    height: 50%; 
     width: 49%;
-    padding: 3% 2%;
-    overflow-y: scroll;
+    padding: 0 2%;
     border-radius: 2px;
+}
+#description-container, #distance-container{
+    margin:0;
+    padding:0;
+}
+#description-container {
+    height: 90%;
+    overflow-y: scroll;
+    padding-bottom: 5%;
+}
+#distance-container {
+    height: 10%;
 }
 #description, #distance {
     color: whitesmoke;
