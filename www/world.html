@@ -64,25 +64,24 @@
                         <!-- ***********+***** -->
                         <div class="swiper-container">
                             <!-- Additional required wrapper -->
-                            <div class="swiper-wrapper">
+                            <div class="swiper-wrapper" id="slider">
                                 <!-- Slides -->
-                                <div class="swiper-slide"><img src="img/parallel.png"></div>
-                                <div class="swiper-slide"><img src="img/PobleEspanyol.jpg"></div>
-                                <div class="swiper-slide"><img src="img/Torres_de_Quart.jpg"></div>
-                                ...
+                               
                             </div>
                             <!-- If we need pagination -->
                             <div class="swiper-pagination"></div>
 
-                                    <script src="js/swiper.jquery.min.js"></script>
-                            <script>$(document).ready(function () {
-    //initialize swiper when document ready  
-    var mySwiper = new Swiper ('.swiper-container', {
-      // Optional parameters
-      direction: 'horizontal',
-      loop: true
-    })        
-  });</script>
+                            <script src="js/swiper.jquery.min.js"></script>
+                            <script>
+                                $(document).ready(function () {
+                                //initialize swiper when document ready  
+                                var mySwiper = new Swiper ('.swiper-container', {
+                                  // Optional parameters
+                                  direction: 'horizontal',
+                                  loop: true
+                                })        
+                              });
+                            </script>
 
                         </div>
                         <!-- ***********+***** -->

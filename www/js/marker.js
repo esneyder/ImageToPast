@@ -102,6 +102,10 @@ Marker.prototype.setSelected = function(marker) {
     document.getElementById("description").innerHTML = marker.poiData.description;
     document.getElementById("distance").innerHTML = marker.distanceToUser;
     document.getElementById("image").src = marker.poiData.image;
+    var numImages = parseInt(marker.poiData.numimages);
+    for (i=0; i<numImages; i++) {
+        document.getElementById("slider").innerHTML = "<div class='swiper-slide'><img src='"+marker.poiData.images+"/"+marker.poiData.id+i+".jpg'></div>
+    }
     
     
 };

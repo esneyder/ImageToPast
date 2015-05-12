@@ -31,6 +31,8 @@ var World = {
 				"altitude": parseFloat(poiData[currentPlaceNr].altitude),
 				"title": poiData[currentPlaceNr].name,
                 "image": poiData[currentPlaceNr].image,
+                "images": poiData[currentPlaceNr].images,
+                "numimages": poiData[currentPlaceNr].numimages,
 				"description": poiData[currentPlaceNr].description
 			};
 
