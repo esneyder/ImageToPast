@@ -31,26 +31,19 @@ body, html{
     height:90%;
     margin: 3%;
 }
-.swiper-container{
-    height: 100%;
-    box-shadow: 0 1px 1px rgba(0,0,0,0.12), 0 1px 1px rgba(0,0,0,0.24);
-    border-radius: 2px;
-}
-.swiper-slide{
-    width:100%;
-}
-.swiper-slide img{
-    height:100%;
-}
 .materialize_esp{
-  line-height: 1.5;
-  font-family: "Roboto", sans-serif;
-  font-weight: normal;
-  color: rgba(0,0,0,0.87);
+    line-height: 1.5;
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+    color: rgba(0,0,0,0.87);
 }
 .material_list{
     margin:0;
     text-shadow: none;
+    padding: 0;
+}
+.material_list .collection{
+    margin: 0;
 }
 .collection .collection-item.avatar .title {
     font-size: 1.3em;
@@ -61,9 +54,12 @@ body, html{
     font-family: "Roboto", sans-serif;
     color: #c3bfbf;
 }
+.itp-list-link{
+    color: #8d6e63 !important;
+}
 nav{
-  height: 48px;
-  line-height: 48px;
+    height: 48px;
+    line-height: 48px;
 }
 .nav-wrapper h1{
     font-size: 1.3em;
@@ -88,4 +84,39 @@ nav{
 .section a{
     width:90%; 
     margin-bottom:4px;
+}
+.miavatar{
+    width: 42px;
+    height: 42px;
+    overflow: hidden;
+    left: 15px;
+    display: inline-block;
+    vertical-align: middle;
+}
+/*MODIFICACIONES PARA LA TARJETA QUE MUESTRA LA INFORMACIÓN EN CÁMARA*/
+.slides, .slider{
+    height:200px !important;
+}
+.card-content p{
+    text-align: justify;
+    overflow:scroll; 
+    max-height:100px;
+}
+.card-title{
+    position: absolute;
+    top:5px;
+    left: 5px;
+    color:#000;
+    z-index: 10;
+}
+.slider .indicators{
+    z-index: 10;
+}
+.card-action a{
+    color: #795548 !important;
+}
+/*GENERALES A LA APLICACIÓN*/
+fixed-action-btn{
+    bottom: 20px; 
+    right: 24px;
 }

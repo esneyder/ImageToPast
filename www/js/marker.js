@@ -101,10 +101,11 @@ Marker.prototype.setSelected = function(marker) {
     var numImages = parseInt(marker.poiData.numimages);
     var carrusel = "";
     for (i=1; i<=numImages; i++) {
-        carrusel = carrusel+"<div class='swiper-slide'><img src='"+marker.poiData.images+"/"+marker.poiData.id+i+".jpg'></div>";
+        carrusel = carrusel+"<li> <img style='height:200px;' src='"+marker.poiData.images+"/"+marker.poiData.id+i+".jpg'></li>";
         
     }
-    document.getElementById("slider").innerHTML = carrusel;
+    document.getElementById("miSlides").innerHTML = carrusel;
+    $('.slider').slider();
     
     
 };
