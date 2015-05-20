@@ -7,6 +7,20 @@
         "/Users/frafusan/imagetopast/www/spec/helper.js",
         "/Users/frafusan/imagetopast/www/spec/index.js",
         "/Users/frafusan/imagetopast/plugins/org.apache.cordova.splashscreen/tests/tests.js",
-        "/Users/frafusan/imagetopast/plugins/org.apache.cordova.splashscreen/src/tizen/SplashScreenProxy.js"
+        "/Users/frafusan/imagetopast/plugins/org.apache.cordova.splashscreen/src/tizen/SplashScreenProxy.js",
+        "/Users/frafusan/imagetopast/plugins/org.apache.cordova.splashscreen/src/blackberry10/index.js",
+        "/Users/frafusan/imagetopast/plugins/org.apache.cordova.geolocation/www/PositionError.js",
+        "/Users/frafusan/imagetopast/plugins/org.apache.cordova.geolocation/www/Position.js",
+        "/Users/frafusan/imagetopast/platforms/android/assets/www/spec/lib/jasmine-1.2.0/jasmine.js",
+        "/Users/frafusan/imagetopast/plugins/org.apache.cordova.geolocation/www/geolocation.js",
+        "/Users/frafusan/imagetopast/platforms/ios/build/emulator/ImageToPast.app/www/spec/index.js",
+        "/Users/frafusan/imagetopast/platforms/ios/build/emulator/ImageToPast.app/www/spec/lib/jasmine-1.2.0/jasmine-html.js",
+        "/Users/frafusan/imagetopast/platforms/ios/www/plugins/com.wikitude.phonegap.WikitudePlugin/www/WikitudePlugin.js",
+        "/Users/frafusan/imagetopast/platforms/ios/www/plugins/org.apache.cordova.geolocation/www/Coordinates.js",
+        "/Users/frafusan/imagetopast/platforms/ios/www/plugins/org.apache.cordova.geolocation/www/geolocation.js",
+        "/Users/frafusan/imagetopast/platforms/android/build/intermediates/assets/debug/www/js/googlemaps.js",
+        "/Users/frafusan/imagetopast/platforms/android/build/intermediates/assets/debug/www/js/marker.js",
+        "/Users/frafusan/imagetopast/www/js/marker.js",
+        "/Users/frafusan/imagetopast/platforms/ios/www/spec/index.js"
     ]
 }

@@ -37,9 +37,9 @@ function Marker(poiData) {
 
     this.myImage = new AR.ImageResource(poiData.image);
 
-    this.imageLabel = new AR.ImageDrawable(this.myImage, 1.5, {
+    this.imageLabel = new AR.ImageDrawable(this.myImage, 1.7, {
         zOrder: 1,
-        offsetY : 0.25,
+        offsetY : 0.55,
         opacity: 0.7,
         onClick: null
     })
@@ -92,16 +92,19 @@ Marker.prototype.setSelected = function(marker) {
     marker.markerDrawable_selected.onClick = Marker.prototype.getOnClickTrigger(marker);
     
     // NOS DA LA DISTANCIA ENTRE NUESTRA POSICION Y EL MARKER
-    marker.distanceToUser = marker.markerObject.locations[0].distanceToUser();
-    
-    console.log("CURRO: "+marker.poiData.title);
-    
+    marker.distanceToUser = marker.markerObject.locations[0].distanceToUser();    
     // MOSTRAMOS UN DIV CON MÁS INFORMACION
-    document.getElementById("detail-viewer").style.opacity = "1";
+    document.getElementById("detail-viewer").style.bottom = "5px";
     document.getElementById("name").innerHTML = marker.poiData.title;
     document.getElementById("description").innerHTML = marker.poiData.description;
-    document.getElementById("distance").innerHTML = marker.distanceToUser;
-    document.getElementById("image").src = marker.poiData.image;
+    document.getElementById("distance").innerHTML = (marker.distanceToUser > 999) ? ((marker.distanceToUser / 1000).toFixed(2) + " km") : (Math.round(marker.distanceToUser) + " m");
+    var numImages = parseInt(marker.poiData.numimages);
+    var carrusel = "";
+    for (i=1; i<=numImages; i++) {
+        carrusel = carrusel+"<div class='swiper-slide'><img src='"+marker.poiData.images+"/"+marker.poiData.id+i+".jpg'></div>";
+        
+    }
+    document.getElementById("slider").innerHTML = carrusel;
     
     
 };
@@ -117,7 +120,7 @@ Marker.prototype.setDeselected = function(marker) {
     marker.markerDrawable_selected.onClick = null;
     
     // OCULTAMOS EL DIV INFORMATIVO
-    document.getElementById("detail-viewer").style.opacity = "0";
+    document.getElementById("detail-viewer").style.bottom = "-1000px";
     
 };
 

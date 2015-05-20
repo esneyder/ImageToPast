@@ -16,8 +16,10 @@
     "com.wikitude.phonegap.WikitudePlugin": {
         "source": {
             "type": "git",
-            "url": "https://github.com/Wikitude/wikitude-phonegap.git",
+            "url": "https://github.com/Wikitude/wikitude-cordova-plugin.git",
             "subdir": "."
-        }
+        },
+        "is_top_level": true,
+        "variables": {}
     }
 }
