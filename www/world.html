@@ -39,7 +39,7 @@
 
         <!-- Google maps -->
         <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
-        <script src="js/googlemaps.js"></script>
+        
 
         <!-- Materialize JS -->
         <script src="js/materialize.min.js"></script>
@@ -86,19 +86,17 @@
         </div>
 
     </div>
-<div data-role="page" id="map-page" data-theme="b" style="background: none;">
-    <div data-role="header" data-theme="b" id="cerrar" data-position="fixed" data-fullscreen="true"> 
+<div data-role="page" id="map-page" data-theme="b">
+    <div data-role="header" data-theme="b" id="cerrar" data-position="fixed"> 
         <nav>
             <div class="nav-wrapper brown darken-2">
-                <a class="brand-logo">Maps</a>
+                <ul id="nav-mobile" class="left">
+                    <li><a id="patras" href="#cam-page"><i class="mdi-navigation-arrow-back"></i></a></li>
+                </ul>
+                  <span class='title'>Mapa</span>
             </div>
         </nav>
-    </div>
-    <div class="fixed-action-btn">
-        <a class="btn-floating btn-large red" href="#cam-page">
-            <i class="large mdi-image-camera-alt"></i>
-        </a>
-    </div>   
+    </div> 
     <div role="main" class="ui-content" id="map-canvas" >
     </div>
 </div>
@@ -157,6 +155,7 @@
 </div>
 
 <script src="js/imagetopast.js"></script>
+<script src="js/googlemaps.js"></script>
 </body>
 
 </html>

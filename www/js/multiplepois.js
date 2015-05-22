@@ -52,7 +52,6 @@ var World = {
         World.updateDistanceToUserValues();
 
 		World.updateStatusMessage(currentPlaceNr + ' places loaded');
-        console.log("midebug: "+ currentPlaceNr);
 	},
     
     // sets/updates distances of all makers so they are available way faster than calling (time-consuming) distanceToUser() method all the time

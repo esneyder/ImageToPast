@@ -1,4 +1,4 @@
-var example = {
+var myWorld = {
     "path": "www/world.html", 
     "requiredFeatures": [
         "geo"
@@ -7,6 +7,7 @@ var example = {
         "camera_position": "back"
     }
 };
+var ala;
 var app = {
 
     // represents the device capability of launching ARchitect Worlds with specific features
@@ -25,13 +26,14 @@ var app = {
     },
     // deviceready Event Handler
     onDeviceReady: function() {
+         
         app.receivedEvent('deviceready');
-        navigator.splashscreen.show();
+        navigator.splashscreen.hide();
         // check if the current device is able to launch ARchitect Worlds
         app.wikitudePlugin = cordova.require("com.wikitude.phonegap.WikitudePlugin.WikitudePlugin");
         app.wikitudePlugin.isDeviceSupported(function() {
                 app.isDeviceSupported = true;
-                app.loadARchitectWorld(example);
+                app.loadARchitectWorld(myWorld);
             }, function(errorMessage) {
                 app.isDeviceSupported = false;    
                 alert('Unable to launch ARchitect Worlds on this device: \n' + errorMessage);            
@@ -51,7 +53,7 @@ var app = {
     },
     // --- Wikitude Plugin ---
     // Use this method to load a specific ARchitect World from either the local file system or a remote server
-    loadARchitectWorld: function(example) {
+    loadARchitectWorld: function(myWorld) {
         app.wikitudePlugin.setOnUrlInvokeCallback(app.onUrlInvoke);
 
         if (app.isDeviceSupported) {
@@ -60,32 +62,33 @@ var app = {
                 }, function errorFn(error) {
                     alert('Loading AR web view failed: ' + error);
                 },
-                example.path, example.requiredFeatures, example.startupConfiguration
+                myWorld.path, myWorld.requiredFeatures, myWorld.startupConfiguration
             );
-
-            // inject poi data using phonegap's GeoLocation API and inject data using World.loadPoisFromJsonData
-            if ( example.requiredExtension === "ObtainPoiDataFromApplicationModel" ) {
-                navigator.geolocation.getCurrentPosition(onLocationUpdated, onLocationError);
-            }
         } else {
             alert("Device is not supported");
         }
     },
     onUrlInvoke: function (url) {
-        if (url.indexOf('captureScreen') > -1) {
-            app.wikitudePlugin.captureScreen(
-                function(absoluteFilePath) {
-                    alert("snapshot stored at:\n" + absoluteFilePath);
-                }, 
-                function (errorMessage) {
-                    alert(errorMessage);                
-                },
-                true, null
-            );
+          if ( 'googleMapsFull' == url.substring(22) ) {
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(
+                function(position) {
+                    app.wikitudePlugin.callJavaScript('generaMapa('+position.coords.latitude+','+position.coords.longitude+');');
+                });
+            }
+            
+        } else if ( 'googleMapsMini' == url.substring(22) ) {
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(
+                function(position) {
+                    app.wikitudePlugin.callJavaScript('generaMapaMini('+position.coords.latitude+','+position.coords.longitude+');');
+                });
+            }
         } else {
-            alert(url + "not handled");
+            alert('ARchitect => PhoneGap ' + url);
         }
     }
     // --- End Wikitude Plugin ---
 };
+
 

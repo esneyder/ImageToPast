@@ -10,6 +10,15 @@
         "/Users/frafusan/imagetopast/plugins/org.apache.cordova.splashscreen/src/tizen/SplashScreenProxy.js",
         "/Users/frafusan/proyectos/imagetopast/plugins/org.apache.cordova.splashscreen/www/windows8/SplashScreenProxy.js",
         "/Users/frafusan/proyectos/imagetopast/www/js/myJsonData.js",
-        "/Users/frafusan/proyectos/imagetopast/www/js/marker.js"
+        "/Users/frafusan/proyectos/imagetopast/www/js/marker.js",
+        "/Users/frafusan/imagetopast/platforms/ios/www/plugins/cordova-plugin-splashscreen/www/splashscreen.js",
+        "/Users/frafusan/imagetopast/platforms/ios/www/spec/helper.js",
+        "/Users/frafusan/imagetopast/platforms/ios/www/spec/index.js",
+        "/Users/frafusan/imagetopast/platforms/ios/www/spec/lib/jasmine-1.2.0/jasmine-html.js",
+        "/Users/frafusan/imagetopast/platforms/ios/www/spec/lib/jasmine-1.2.0/jasmine.js",
+        "/Users/frafusan/imagetopast/plugins/com.wikitude.phonegap.WikitudePlugin/www/WikitudePlugin.js",
+        "/Users/frafusan/imagetopast/plugins/cordova-plugin-geolocation/src/firefoxos/GeolocationProxy.js",
+        "/Users/frafusan/imagetopast/plugins/cordova-plugin-geolocation/src/windows/GeolocationProxy.js",
+        "/Users/frafusan/imagetopast/plugins/cordova-plugin-geolocation/tests/tests.js"
     ]
 }
