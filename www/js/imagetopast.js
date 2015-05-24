@@ -1,6 +1,9 @@
 var localizaciones = [];
+var posiciones = [];
+var markers = [];
 var id;
 var map;
+var map2;
 var pos;
 /****************** map-page ***********************/
 function googleMapsFull()
@@ -8,11 +11,9 @@ function googleMapsFull()
      document.location = 'architectsdk://action=googleMapsFull';
 }
 function generaMapa(lat,lon){
-    alert(lat);
-    alert(lon);
     var LatLang = new google.maps.LatLng(lat, lon);
     var myOptions = {
-        zoom: 10,
+        zoom: 12,
         center: LatLang,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
@@ -31,6 +32,21 @@ function generaMapa(lat,lon){
         map: map,
         title: "Greetings!"
     });
+    localizaciones = World.markerList;
+    localizaciones.forEach(function(element, index, array){
+        var posicionPoi = new google.maps.LatLng(element.poiData.latitude, element.poiData.longitude);
+        var marker = new google.maps.Marker({
+            position: posicionPoi,
+            icon: 'img/marker.png',
+            map: map,
+            title: element.poiData.title,
+            animation: google.maps.Animation.DROP
+        });
+    
+    });
+    /*for (var i = 0; i < posiciones.length; i++) {
+        addMarkerWithTimeout(posiciones[i], i * 200);
+    }*/
 
 }
 $(document).on('pageshow','#map-page', function(){
@@ -52,15 +68,13 @@ function googleMapsMini()
      document.location = 'architectsdk://action=googleMapsMini';
 }
 function generaMapaMini(lat,lon){
-    alert(lat);
-    alert(lon);
     var LatLang = new google.maps.LatLng(lat, lon);
     var myOptions = {
-        zoom: 10,
+        zoom: 20,
         center: LatLang,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
-    var map = new google.maps.Map(document.getElementById("map-canvas2"), myOptions);
+    var map2 = new google.maps.Map(document.getElementById("map-canvas2"), myOptions);
         // Add an overlay to the map of current lat/lng
     var marker = new google.maps.Marker({
         position: LatLang,
@@ -72,10 +86,17 @@ function generaMapaMini(lat,lon){
             fillColor: '#00F',
             fillOpacity: 1
         },
-        map: map,
+        map: map2,
         title: "Greetings!"
     });
-
+    var poiPosicion = new google.maps.LatLng(localizaciones[id].poiData.latitude, localizaciones[id].poiData.longitude);
+    var marker = new google.maps.Marker({
+        position: poiPosicion,
+        map: map2,
+        icon: 'img/marker.png',
+        title: localizaciones[id].poiData.title
+    });
+    map2.setCenter(poiPosicion);
 }
 $(document).on('pageshow','#detail-page', function(){
     googleMapsMini(); 
@@ -83,6 +104,7 @@ $(document).on('pageshow','#detail-page', function(){
     $('#info-nombre').html(localizaciones[id].poiData.title);
     $('#info-distancia').html((localizaciones[id].distanceToUser > 999) ? ((localizaciones[id].distanceToUser / 1000).toFixed(2) + " km") : (Math.round(localizaciones[id].distanceToUser) + " m"));
     $('#info-descripcion').html(localizaciones[id].poiData.description);
+    $('#info-link').attr("href", localizaciones[id].poiData.web);
 });
 /****************** list-page ***********************/
 $(document).on('pagecreate','#list-page', function() {
@@ -97,12 +119,11 @@ $(document).on('pagecreate','#list-page', function() {
           <p> <br>\
              "+distancia+"\
           </p>\
-          <a href='#detail-page' id='"+index+"' class='secondary-content'><i class='mdi-action-info-outline itp-list-link'></i></a>\
+          <a href='#detail-page' id='"+index+"' class='secondary-content' data-transition='slide'><i class='mdi-action-info-outline itp-list-link'></i></a>\
         </li>";
     });
     $( "#listado").html(lista);
     $("a").on("click", function(e){
-        console.log("pulsado");
         id = $(this).attr("id");
     });
 });

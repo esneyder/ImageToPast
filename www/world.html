@@ -55,8 +55,8 @@
                     <i class="large mdi-content-add"></i>
                 </a>
                 <ul>
-                    <li><a class="btn-floating red" href="#map-page"><i class="large mdi-maps-map"></i></a></li>
-                    <li><a class="btn-floating yellow darken-1" href="#list-page"><i class="large mdi-action-list"></i></a></li>
+                    <li><a class="btn-floating red" data-transition="slideup" href="#map-page"><i class="large mdi-maps-map"></i></a></li>
+                    <li><a class="btn-floating yellow darken-1" data-transition="slideup" href="#list-page"><i class="large mdi-action-list"></i></a></li>
                     <li><a class="btn-floating green"><i class="large mdi-action-settings"></i></a></li>
                 </ul>
             </div>
@@ -91,7 +91,7 @@
         <nav>
             <div class="nav-wrapper brown darken-2">
                 <ul id="nav-mobile" class="left">
-                    <li><a id="patras" href="#cam-page"><i class="mdi-navigation-arrow-back"></i></a></li>
+                    <li><a href="#cam-page" data-transition="slidedown"><i class="mdi-navigation-arrow-back"></i></a></li>
                 </ul>
                   <span class='title'>Mapa</span>
             </div>
@@ -106,7 +106,7 @@
         <nav>
             <div class="nav-wrapper brown darken-2">
                 <ul id="nav-mobile" class="left">
-                    <li><a href="#cam-page"><i class="mdi-navigation-arrow-back"></i></a></li>
+                    <li><a href="#cam-page" data-transition="slidedown"><i class="mdi-navigation-arrow-back"></i></a></li>
                 </ul>
                 <h1>Lista</h1>
             </div>
@@ -122,7 +122,7 @@
         <nav>
             <div class="nav-wrapper brown darken-2">
                 <ul id="nav-mobile" class="left">
-                    <li><a id="patras" href="#cam-page"><i class="mdi-navigation-arrow-back"></i></a></li>
+                    <li><a href="#list-page"><i class="mdi-navigation-arrow-back"></i></a></li>
                 </ul>
                   <img id="info-imagen" src='' alt='' class='miavatar circle'>
                   <span id="info-nombre" class='title'></span>
@@ -142,7 +142,7 @@
                 </div>
                 <div class="divider"></div>
                 <div class="section" style="text-align:center;">
-                    <a class="waves-effect waves-light btn brown lighten-1"><i class="mdi-maps-place left"></i>localizacion</a>
+                    <a id="#info-link" class="waves-effect waves-light btn brown lighten-1"><i class="mdi-maps-place left"></i>localizacion</a>
                     <a class="waves-effect waves-light btn brown lighten-1"><i class="mdi-social-public left"></i>pagina del sitio</a>
                 </div>
                 <div class="divider"></div>
