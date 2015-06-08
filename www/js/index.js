@@ -87,8 +87,14 @@ var app = {
         } else {
             alert('ARchitect => PhoneGap ' + url);
         }
+    },
+
+    locationChanged: function locationChangedFn(lat, lon, alt, acc) {
+        alert("lat: "+lat+", long: "+lon );
     }
     // --- End Wikitude Plugin ---
 };
+
+AR.context.onLocationChanged = World.locationChanged;
 
 
