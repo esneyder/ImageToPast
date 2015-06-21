@@ -69,24 +69,13 @@ var app = {
         }
     },
     onUrlInvoke: function (url) {
-          if ( 'googleMapsFull' == url.substring(22) ) {
-            if(navigator.geolocation){
-                navigator.geolocation.getCurrentPosition(
-                function(position) {
-                    app.wikitudePlugin.callJavaScript('generaMapa('+position.coords.latitude+','+position.coords.longitude+');');
-                });
-            }
+        if ( 'openPage' == url.substring(22) ) {
+            console.log(pagina);
+            console.log($pagina);
+            window.open(pagina,'system','location=no');
             
-        } else if ( 'googleMapsMini' == url.substring(22) ) {
-            if(navigator.geolocation){
-                navigator.geolocation.getCurrentPosition(
-                function(position) {
-                    app.wikitudePlugin.callJavaScript('generaMapaMini('+position.coords.latitude+','+position.coords.longitude+');');
-                });
-            }
-        } else {
-            alert('ARchitect => PhoneGap ' + url);
-        }
+        } else
+          alert(url + "not handled");
     },
 
     locationChanged: function locationChangedFn(lat, lon, alt, acc) {

@@ -6,12 +6,8 @@ var map;
 var map2;
 var pos;
 /****************** map-page ***********************/
-function googleMapsFull()
-{
-     document.location = 'architectsdk://action=googleMapsFull';
-}
 function generaMapa(lat,lon){
-    var LatLang = new google.maps.LatLng(lat, lon);
+    var LatLang = new google.maps.LatLng(World.userLocation.latitude, World.userLocation.longitude);
     var myOptions = {
         zoom: 12,
         center: LatLang,
@@ -50,25 +46,11 @@ function generaMapa(lat,lon){
 
 }
 $(document).on('pageshow','#map-page', function(){
-    googleMapsFull(); 
-});
-/*$(document).on('pageshow','#map-page', function(){
-    $('#map-page').css('height', '100%');
-    google.maps.event.trigger(map, 'resize');
-    map.setCenter(pos); 
-}); 
-
-$(document).on('pagecreate','#map-page', function() {
-    map = initialize();
-    myPosition();
+    generaMapa(); 
 });
 /****************** detail-page ***********************/
-function googleMapsMini()
-{
-     document.location = 'architectsdk://action=googleMapsMini';
-}
-function generaMapaMini(lat,lon){
-    var LatLang = new google.maps.LatLng(lat, lon);
+function generaMapaMini(){
+    var LatLang = new google.maps.LatLng(World.userLocation.latitude, World.userLocation.longitude);
     var myOptions = {
         zoom: 20,
         center: LatLang,
@@ -99,23 +81,27 @@ function generaMapaMini(lat,lon){
     map2.setCenter(poiPosicion);
 }
 $(document).on('pageshow','#detail-page', function(){
-    googleMapsMini(); 
+    generaMapaMini(); 
     $('#info-imagen').attr("src", localizaciones[id].poiData.image);
     $('#info-nombre').html(localizaciones[id].poiData.title);
     $('#info-distancia').html((localizaciones[id].distanceToUser > 999) ? ((localizaciones[id].distanceToUser / 1000).toFixed(2) + " km") : (Math.round(localizaciones[id].distanceToUser) + " m"));
     $('#info-descripcion').html(localizaciones[id].poiData.description);
-    $('#info-link').attr("href", localizaciones[id].poiData.web);
+    $('#info-link').attr('onClick', 'window.open("'+localizaciones[id].poiData.web+'","_system", "location=no");');
+    $('#location-link').attr("href","geo:"+localizaciones[id].poiData.latitude+","+localizaciones[id].poiData.longitude);
+    function openPage()
+    {
+         document.location = 'architectsdk://action=openPage?pagina='+localizaciones[id].poiData.latitude;
+    }
 });
 /****************** list-page ***********************/
-$(document).on('pagecreate','#list-page', function() {
-    localizaciones = World.markerList;
-    localizaciones.sortByDistanceSorting;
+$(document).on('pageshow','#list-page', function() {
+    localizaciones = World.markerList.sort(World.sortByDistanceSorting);
     var lista = "";
     localizaciones.forEach(function(element, index, array){
         var distancia = (element.distanceToUser > 999) ? ((element.distanceToUser / 1000).toFixed(2) + " km") : (Math.round(element.distanceToUser) + " m")
         lista = lista + "<li class='collection-item avatar materialize_esp'>\
           <img src='"+element.poiData.image+"' alt='' class='circle'>\
-          <span class='title'>"+element.poiData.title+"</span>\
+          <span class='title'>"+element.poiData.title.trunc(24)+"</span>\
           <p> <br>\
              "+distancia+"\
           </p>\

@@ -7,7 +7,8 @@ var myJsonData = [{
     "image": "img/torresquart/torresquart1.jpg",
     "numimages": "8",
     "images": "img/torresquart",
-	"name": "Torres de Quart"
+	"name": "Torres de Quart",
+    'web': 'http://www.catedraldevalencia.es/'
 }, {
 	'id': 'santacatalina',
     'longitudeOffset': '-0.376506',
@@ -29,7 +30,7 @@ var myJsonData = [{
 	'numimages': '1',
 	'images': 'img/plazareina',
     'name': 'Plaza de la Reina',
-    'web': ''
+    'web': 'http://www.catedraldevalencia.es/'
 },{
 	'id': 'catedralvalencia',
     'longitudeOffset': '-0.375216',

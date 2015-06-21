@@ -19,6 +19,7 @@
         "/Users/frafusan/imagetopast/plugins/com.wikitude.phonegap.WikitudePlugin/www/WikitudePlugin.js",
         "/Users/frafusan/imagetopast/plugins/cordova-plugin-geolocation/src/firefoxos/GeolocationProxy.js",
         "/Users/frafusan/imagetopast/plugins/cordova-plugin-geolocation/src/windows/GeolocationProxy.js",
-        "/Users/frafusan/imagetopast/plugins/cordova-plugin-geolocation/tests/tests.js"
+        "/Users/frafusan/imagetopast/plugins/cordova-plugin-geolocation/tests/tests.js",
+        "/Users/frafusan/imagetopast/plugins/cordova-plugin-geolocation/www/blackberry10/GeolocationProxy.js"
     ]
 }

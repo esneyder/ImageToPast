@@ -40,7 +40,8 @@ var World = {
                 "image": poiData[currentPlaceNr].image,
                 "numimages": parseInt(poiData[currentPlaceNr].numimages),
                 "images": poiData[currentPlaceNr].images,
-				"description": poiData[currentPlaceNr].description
+				"description": poiData[currentPlaceNr].description,
+				"web": poiData[currentPlaceNr].web
 			};
 
 			/*
@@ -78,6 +79,13 @@ var World = {
 
 	// location updates, fired every time you call architectView.setLocation() in native environment
 	locationChanged: function locationChangedFn(lat, lon, alt, acc) {
+
+		World.userLocation = {
+			'latitude': lat,
+			'longitude': lon,
+			'altitude': alt,
+			'accuracy': acc
+		};
 
 		/*
 			The custom function World.onLocationChanged checks with the flag World.initiallyLoadedData if the function was already called. With the first call of World.onLocationChanged an object that contains geo information will be created which will be later used to create a marker using the World.loadPoisFromJsonData function.

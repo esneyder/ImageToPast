@@ -17,12 +17,13 @@ body, html{
 
 #detail-viewer{
     position:absolute;
-    bottom: -500px;
-    transition: 1s 2s bottom;
+    bottom: -400px;
+    transition: 0.5s 1s bottom;
     font-family: "Roboto", sans-serif;
     text-shadow: none;
     color:black;
 }
+
 #distance {
     font-size: 0,8em;
 }

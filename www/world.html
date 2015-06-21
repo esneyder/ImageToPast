@@ -44,6 +44,8 @@
         <!-- Materialize JS -->
         <script src="js/materialize.min.js"></script>
 
+        <script type="text/javascript" charset="utf-8" src="../plugins/org.apache.cordova.inappbrowser/www/inappbrowser.js"></script>
+
 
     </head>
 
@@ -57,7 +59,7 @@
                 <ul>
                     <li><a class="btn-floating red" data-transition="slideup" href="#map-page"><i class="large mdi-maps-map"></i></a></li>
                     <li><a class="btn-floating yellow darken-1" data-transition="slideup" href="#list-page"><i class="large mdi-action-list"></i></a></li>
-                    <li><a class="btn-floating green"><i class="large mdi-action-settings"></i></a></li>
+                    <li><a class="btn-floating green waves-effect waves-light btn modal-trigger" href="#modal1"><i class="large mdi-action-settings"></i></a></li>
                 </ul>
             </div>
              
@@ -72,7 +74,7 @@
 
                         <div class="card-content">
                             <p id="description" ></p>
-                            </br>
+                            <br>
                         <p id="distance"></p>
                     </div>
 
@@ -142,8 +144,8 @@
                 </div>
                 <div class="divider"></div>
                 <div class="section" style="text-align:center;">
-                    <a id="#info-link" class="waves-effect waves-light btn brown lighten-1"><i class="mdi-maps-place left"></i>localizacion</a>
-                    <a class="waves-effect waves-light btn brown lighten-1"><i class="mdi-social-public left"></i>pagina del sitio</a>
+                    <a id="location-link" class="waves-effect waves-light btn brown lighten-1"><i class="mdi-maps-place left"></i>Como llegar</a>
+                    <a id="info-link"class="waves-effect waves-light btn brown lighten-1"><i class="mdi-social-public left"></i>pagina del sitio</a>
                 </div>
                 <div class="divider"></div>
                 <div class="section">
