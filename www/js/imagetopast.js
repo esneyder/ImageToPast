@@ -5,6 +5,7 @@ var id;
 var map;
 var map2;
 var pos;
+var web;
 /****************** map-page ***********************/
 function generaMapa(lat,lon){
     var LatLang = new google.maps.LatLng(World.userLocation.latitude, World.userLocation.longitude);
@@ -14,7 +15,6 @@ function generaMapa(lat,lon){
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     var map = new google.maps.Map(document.getElementById("map-canvas"), myOptions);
-        // Add an overlay to the map of current lat/lng
     var marker = new google.maps.Marker({
         position: LatLang,
         icon: {
@@ -40,9 +40,6 @@ function generaMapa(lat,lon){
         });
     
     });
-    /*for (var i = 0; i < posiciones.length; i++) {
-        addMarkerWithTimeout(posiciones[i], i * 200);
-    }*/
 
 }
 $(document).on('pageshow','#map-page', function(){
@@ -50,7 +47,7 @@ $(document).on('pageshow','#map-page', function(){
 });
 /****************** detail-page ***********************/
 function generaMapaMini(){
-    var LatLang = new google.maps.LatLng(World.userLocation.latitude, World.userLocation.longitude);
+    var LatLang = new google.maps.LatLng(localizaciones[id].poiData.latitude, localizaciones[id].poiData.longitude);
     var myOptions = {
         zoom: 20,
         center: LatLang,
@@ -58,27 +55,16 @@ function generaMapaMini(){
     };
     var map2 = new google.maps.Map(document.getElementById("map-canvas2"), myOptions);
         // Add an overlay to the map of current lat/lng
-    var marker = new google.maps.Marker({
-        position: LatLang,
-        icon: {
-            path: google.maps.SymbolPath.CIRCLE,
-            scale: 7,
-            strokeColor: '#FFFFFF',
-            strokeWeight: 2,
-            fillColor: '#00F',
-            fillOpacity: 1
-        },
-        map: map2,
-        title: "Greetings!"
-    });
-    var poiPosicion = new google.maps.LatLng(localizaciones[id].poiData.latitude, localizaciones[id].poiData.longitude);
     var marker = new google.maps.Marker({
-        position: poiPosicion,
+        position: LatLang,
         map: map2,
         icon: 'img/marker.png',
         title: localizaciones[id].poiData.title
     });
-    map2.setCenter(poiPosicion);
+}
+function enviarPagina(web){
+    console.log("ejecuto esto cuando me sale de la punta del nabo");
+    document.location = 'architectsdk://action=openPage?p='+web;
 }
 $(document).on('pageshow','#detail-page', function(){
     generaMapaMini(); 
@@ -86,13 +72,11 @@ $(document).on('pageshow','#detail-page', function(){
     $('#info-nombre').html(localizaciones[id].poiData.title);
     $('#info-distancia').html((localizaciones[id].distanceToUser > 999) ? ((localizaciones[id].distanceToUser / 1000).toFixed(2) + " km") : (Math.round(localizaciones[id].distanceToUser) + " m"));
     $('#info-descripcion').html(localizaciones[id].poiData.description);
-    $('#info-link').attr('onClick', 'window.open("'+localizaciones[id].poiData.web+'","_system", "location=no");');
     $('#location-link').attr("href","geo:"+localizaciones[id].poiData.latitude+","+localizaciones[id].poiData.longitude);
-    function openPage()
-    {
-         document.location = 'architectsdk://action=openPage?pagina='+localizaciones[id].poiData.latitude;
-    }
+    var web = localizaciones[id].poiData.web;
+    $('#info-link').attr("onClick","enviarPagina('"+web+"');");
 });
+
 /****************** list-page ***********************/
 $(document).on('pageshow','#list-page', function() {
     localizaciones = World.markerList.sort(World.sortByDistanceSorting);

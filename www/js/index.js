@@ -7,7 +7,6 @@ var myWorld = {
         "camera_position": "back"
     }
 };
-var ala;
 var app = {
 
     // represents the device capability of launching ARchitect Worlds with specific features
@@ -26,9 +25,8 @@ var app = {
     },
     // deviceready Event Handler
     onDeviceReady: function() {
-         
+        document.addEventListener("backbutton", function(){console.log("merde");}, false);
         app.receivedEvent('deviceready');
-        navigator.splashscreen.hide();
         // check if the current device is able to launch ARchitect Worlds
         app.wikitudePlugin = cordova.require("com.wikitude.phonegap.WikitudePlugin.WikitudePlugin");
         app.wikitudePlugin.isDeviceSupported(function() {
@@ -51,6 +49,14 @@ var app = {
 
         console.log('Received Event: ' + id);
     },
+    openPage: function(web){
+        console.log("entro con web = "+web);
+        var ref = window.open(web, '_system', 'location=yes');
+         ref.addEventListener('loadstart', function(event) { alert('start: ' + event.url); });
+         ref.addEventListener('loadstop', function(event) { alert('stop: ' + event.url); });
+         ref.addEventListener('loaderror', function(event) { alert('error: ' + event.message); });
+         ref.addEventListener('exit', function(event) { alert(event.type); });
+    },
     // --- Wikitude Plugin ---
     // Use this method to load a specific ARchitect World from either the local file system or a remote server
     loadARchitectWorld: function(myWorld) {
@@ -69,10 +75,8 @@ var app = {
         }
     },
     onUrlInvoke: function (url) {
-        if ( 'openPage' == url.substring(22) ) {
-            console.log(pagina);
-            console.log($pagina);
-            window.open(pagina,'system','location=no');
+        if ( 'openPage' == url.substring(22,30) ) {
+            app.openPage(url.substring(33));
             
         } else
           alert(url + "not handled");
