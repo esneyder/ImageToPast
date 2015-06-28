@@ -3,14 +3,13 @@ function Marker(poiData) {
         For creating the marker a new object AR.GeoObject will be created at the specified geolocation. An AR.GeoObject connects one or more AR.GeoLocations with multiple AR.Drawables. The AR.Drawables can be defined for multiple targets. A target can be the camera, the radar or a direction indicator. Both the radar and direction indicators will be covered in more detail in later examples.
     */
 
-    this.poiData = poiData;
-
+    this.poiData = poiData
     // create the AR.GeoLocation from the poi data
     var markerLocation = new AR.GeoLocation(poiData.latitude, poiData.longitude, poiData.altitude);
 
     // create an AR.ImageDrawable for the marker in idle state
-    this.markerDrawable_idle = new AR.ImageDrawable(World.markerDrawable_idle, 3, {
-        zOrder: 2,
+    this.markerDrawable_idle = new AR.ImageDrawable(World.markerDrawable_idle, 2, {
+        zOrder: 1,
         opacity: 1.0,
         /*
             To react on user interaction, an onClick property can be set for each AR.Drawable. The property is a function which will be called each time the user taps on the drawable. The function called on each tap is returned from the following helper function defined in marker.js. The function returns a function which checks the selected state with the help of the variable isSelected and executes the appropriate function. The clicked marker is passed as an argument.
@@ -19,8 +18,8 @@ function Marker(poiData) {
     });
 
     // create an AR.ImageDrawable for the marker in selected state
-    this.markerDrawable_selected = new AR.ImageDrawable(World.markerDrawable_selected, 3, {
-        zOrder: 2,
+    this.markerDrawable_selected = new AR.ImageDrawable(World.markerDrawable_selected, 2, {
+        zOrder: 1,
         opacity: 0.0,
         onClick: null
     });
@@ -29,18 +28,30 @@ function Marker(poiData) {
     this.titleLabel = new AR.Label(poiData.title.trunc(10), 0.5, {
         zOrder: 2,
         offsetY: 0.55,
+        offsetX: 0.8,
         style: {
             textColor: '#ededed',
             fontStyle: AR.CONST.FONT_STYLE.BOLD
         }
     });
 
+    this.markerObjectD = new AR.GeoObject(markerLocation);
+
+    this.distanceToUser = this.markerObjectD.locations[0].distanceToUser();
+
+    this.distanceLabel = new AR.Label((this.distanceToUser > 999) ? ((this.distanceToUser / 1000).toFixed(2) + " km") : (Math.round(this.distanceToUser) + " m").trunc(10), 0.5, {
+        zOrder: 2,
+        offsetX: 0.5,
+        style: {
+            textColor: '#ededed'
+        }
+    });
     this.myImage = new AR.ImageResource(poiData.image);
 
-    this.imageLabel = new AR.ImageDrawable(this.myImage, 1.7, {
-        zOrder: 1,
-        offsetY : 0.55,
-        opacity: 0.7,
+    this.imageLabel = new AR.ImageDrawable(this.myImage, 1.5, {
+        zOrder: 3,
+        offsetX: -1.5,
+        opacity: 1,
         onClick: null
     })
 
@@ -70,11 +81,18 @@ function Marker(poiData) {
     // create the AR.GeoObject with the drawable objects
     this.markerObject = new AR.GeoObject(markerLocation, {
         drawables: {
-            cam: [this.markerDrawable_idle, this.markerDrawable_selected, this.titleLabel, this.imageLabel],
+            cam: [this.markerDrawable_idle, this.markerDrawable_selected, this.titleLabel, this.distanceLabel, this.imageLabel],
             radar: this.radardrawables
 
         }
     });
+
+    this.markerObject.onEnterFieldOfVision = function() {
+      this.markerObject.locations[0].altitude++;
+    };
+    this.markerObject.onExitFieldOfVision = function() {
+      this.markerObject.locations[0].altitude--;
+    };
 
     return this;
 }
@@ -121,7 +139,6 @@ Marker.prototype.setSelected = function(marker) {
     // MOSTRAMOS UN DIV CON MÁS INFORMACION
     document.getElementById("detail-viewer").style.bottom = "5px";
     document.getElementById("name").innerHTML = marker.poiData.title;
-    document.getElementById("description").innerHTML = marker.poiData.description;
     document.getElementById("distance").innerHTML = (marker.distanceToUser > 999) ? ((marker.distanceToUser / 1000).toFixed(2) + " km") : (Math.round(marker.distanceToUser) + " m");
     var numImages = parseInt(marker.poiData.numimages);
     var carrusel = "";

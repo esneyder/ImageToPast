@@ -51,7 +51,7 @@ var World = {
 			World.markerList.push(new Marker(singlePoi));
 		}
         World.updateDistanceToUserValues();
-
+        
 		World.updateStatusMessage(currentPlaceNr + ' places loaded');
 	},
     

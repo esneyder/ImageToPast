@@ -18,6 +18,7 @@ body, html{
 #detail-viewer{
     position:absolute;
     bottom: -400px;
+    width: 360px;
     transition: 0.5s 1s bottom;
     font-family: "Roboto", sans-serif;
     text-shadow: none;
@@ -96,7 +97,7 @@ nav{
 }
 /*MODIFICACIONES PARA LA TARJETA QUE MUESTRA LA INFORMACIÓN EN CÁMARA*/
 .slides, .slider{
-    height:200px !important;
+    height:190px !important;
 }
 .card-content p{
     text-align: justify;

@@ -30,6 +30,12 @@ function generaMapa(lat,lon){
     });
     localizaciones = World.markerList;
     localizaciones.forEach(function(element, index, array){
+        var contentString = '<div id="info">'+
+                                '<p>'+element.poiData.title+'</p>'+
+                            '</div>';
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });                       
         var posicionPoi = new google.maps.LatLng(element.poiData.latitude, element.poiData.longitude);
         var marker = new google.maps.Marker({
             position: posicionPoi,
@@ -38,6 +44,9 @@ function generaMapa(lat,lon){
             title: element.poiData.title,
             animation: google.maps.Animation.DROP
         });
+        google.maps.event.addListener(marker, 'click', function() {
+            infowindow.open(map,marker);
+          });
     
     });
 
@@ -63,7 +72,6 @@ function generaMapaMini(){
     });
 }
 function enviarPagina(web){
-    console.log("ejecuto esto cuando me sale de la punta del nabo");
     document.location = 'architectsdk://action=openPage?p='+web;
 }
 $(document).on('pageshow','#detail-page', function(){
@@ -72,7 +80,7 @@ $(document).on('pageshow','#detail-page', function(){
     $('#info-nombre').html(localizaciones[id].poiData.title);
     $('#info-distancia').html((localizaciones[id].distanceToUser > 999) ? ((localizaciones[id].distanceToUser / 1000).toFixed(2) + " km") : (Math.round(localizaciones[id].distanceToUser) + " m"));
     $('#info-descripcion').html(localizaciones[id].poiData.description);
-    $('#location-link').attr("href","geo:"+localizaciones[id].poiData.latitude+","+localizaciones[id].poiData.longitude);
+    $('#location-link').attr("onClick","enviarPagina('http://maps.google.com/maps?saddr="+World.userLocation.latitude+","+World.userLocation.longitude+"&daddr="+localizaciones[id].poiData.latitude+","+localizaciones[id].poiData.longitude+"&directionsmode=walking&zoom=17');");
     var web = localizaciones[id].poiData.web;
     $('#info-link').attr("onClick","enviarPagina('"+web+"');");
 });

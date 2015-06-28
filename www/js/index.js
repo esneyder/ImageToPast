@@ -25,7 +25,6 @@ var app = {
     },
     // deviceready Event Handler
     onDeviceReady: function() {
-        document.addEventListener("backbutton", function(){console.log("merde");}, false);
         app.receivedEvent('deviceready');
         // check if the current device is able to launch ARchitect Worlds
         app.wikitudePlugin = cordova.require("com.wikitude.phonegap.WikitudePlugin.WikitudePlugin");
