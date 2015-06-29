@@ -122,3 +122,8 @@ fixed-action-btn{
     bottom: 20px; 
     right: 24px;
 }
+#info{
+    font-family: "Roboto", sans-serif;
+    color: #c3bfbf;
+    text-shadow: none;
+}

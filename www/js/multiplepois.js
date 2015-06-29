@@ -1,4 +1,5 @@
-// implementation of AR-Experience (aka "World")
+AR.context.scene.cullingDistance = 150;
+var localizaciones=[];
 var World = {
 	// true once data was fetched
 	initiallyLoadedData: false,
@@ -79,6 +80,7 @@ var World = {
 
 	// location updates, fired every time you call architectView.setLocation() in native environment
 	locationChanged: function locationChangedFn(lat, lon, alt, acc) {
+		localizaciones= World.markerList.sort(World.sortByDistanceSorting);
 
 		World.userLocation = {
 			'latitude': lat,

@@ -1,4 +1,3 @@
-var localizaciones = [];
 var posiciones = [];
 var markers = [];
 var id;
@@ -28,7 +27,6 @@ function generaMapa(lat,lon){
         map: map,
         title: "Greetings!"
     });
-    localizaciones = World.markerList;
     localizaciones.forEach(function(element, index, array){
         var contentString = '<div id="info">'+
                                 '<p>'+element.poiData.title+'</p>'+
@@ -52,6 +50,7 @@ function generaMapa(lat,lon){
 
 }
 $(document).on('pageshow','#map-page', function(){
+    $("#detail-viewer").css("bottom","-400px");
     generaMapa(); 
 });
 /****************** detail-page ***********************/
@@ -75,6 +74,7 @@ function enviarPagina(web){
     document.location = 'architectsdk://action=openPage?p='+web;
 }
 $(document).on('pageshow','#detail-page', function(){
+    $("#detail-viewer").css("bottom","-400px");
     generaMapaMini(); 
     $('#info-imagen').attr("src", localizaciones[id].poiData.image);
     $('#info-nombre').html(localizaciones[id].poiData.title);
@@ -87,7 +87,7 @@ $(document).on('pageshow','#detail-page', function(){
 
 /****************** list-page ***********************/
 $(document).on('pageshow','#list-page', function() {
-    localizaciones = World.markerList.sort(World.sortByDistanceSorting);
+    $("#detail-viewer").css("bottom","-400px");
     var lista = "";
     localizaciones.forEach(function(element, index, array){
         var distancia = (element.distanceToUser > 999) ? ((element.distanceToUser / 1000).toFixed(2) + " km") : (Math.round(element.distanceToUser) + " m")

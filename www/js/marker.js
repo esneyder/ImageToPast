@@ -35,22 +35,12 @@ function Marker(poiData) {
         }
     });
 
-    this.markerObjectD = new AR.GeoObject(markerLocation);
-
-    this.distanceToUser = this.markerObjectD.locations[0].distanceToUser();
-
-    this.distanceLabel = new AR.Label((this.distanceToUser > 999) ? ((this.distanceToUser / 1000).toFixed(2) + " km") : (Math.round(this.distanceToUser) + " m").trunc(10), 0.5, {
-        zOrder: 2,
-        offsetX: 0.5,
-        style: {
-            textColor: '#ededed'
-        }
-    });
     this.myImage = new AR.ImageResource(poiData.image);
 
-    this.imageLabel = new AR.ImageDrawable(this.myImage, 1.5, {
+    this.imageLabel = new AR.ImageDrawable(this.myImage, 1.1, {
         zOrder: 3,
-        offsetX: -1.5,
+        offsetY:0.25,
+        offsetX: -1.1,
         opacity: 1,
         onClick: null
     })
@@ -81,18 +71,24 @@ function Marker(poiData) {
     // create the AR.GeoObject with the drawable objects
     this.markerObject = new AR.GeoObject(markerLocation, {
         drawables: {
-            cam: [this.markerDrawable_idle, this.markerDrawable_selected, this.titleLabel, this.distanceLabel, this.imageLabel],
+            cam: [this.markerDrawable_idle, this.markerDrawable_selected, this.titleLabel, this.imageLabel],
             radar: this.radardrawables
 
         }
     });
 
-    this.markerObject.onEnterFieldOfVision = function() {
-      this.markerObject.locations[0].altitude++;
-    };
-    this.markerObject.onExitFieldOfVision = function() {
-      this.markerObject.locations[0].altitude--;
-    };
+
+    this.distanceToUser = this.markerObject.locations[0].distanceToUser();
+
+    this.distanceLabel = new AR.Label((this.distanceToUser > 999) ? ((this.distanceToUser / 1000).toFixed(2) + " km") : (Math.round(this.distanceToUser) + " m").trunc(10), 0.5, {
+        zOrder: 2,
+        offsetX: 0.5,
+        style: {
+            textColor: '#ededed'
+        }
+    });
+
+    this.markerObject.drawables.addCamDrawable(this.distanceLabel);
 
     return this;
 }
@@ -149,6 +145,12 @@ Marker.prototype.setSelected = function(marker) {
     document.getElementById("miSlides").innerHTML = carrusel;
     $('.slider').slider();
     
+    for (i=0; i<localizaciones.length; i++){
+        if (localizaciones[i].poiData.id == marker.poiData.id){
+            id=i;
+            break;
+        }
+    }
     
 };
 
@@ -163,7 +165,7 @@ Marker.prototype.setDeselected = function(marker) {
     marker.markerDrawable_selected.onClick = null;
     
     // OCULTAMOS EL DIV INFORMATIVO
-    document.getElementById("detail-viewer").style.bottom = "-1000px";
+    document.getElementById("detail-viewer").style.bottom = "-400px";
     
 };
 
